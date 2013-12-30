@@ -26,7 +26,7 @@
 </tr>
 </thead>
 <tbody>
-<c:forEach var="book" items="${books}">
+<c:forEach var="book" items="${books.bookslst}">
 	<tr>
 	<td>${book.id}</td>
 	<td>${book.title}</td>
@@ -37,6 +37,10 @@
 </tbody>
 </table>
 <br />
+<a href="${pageContext.request.contextPath}/book/list.xml">XML</a>, 
+<a href="${pageContext.request.contextPath}/book/list.json">JSon</a>
+<a href="${pageContext.request.contextPath}/book/list.pdf">PDF</a>
+<a href="${pageContext.request.contextPath}/book/list.xls">Excel</a>
 <br />
 ${executeTime}
 <br />

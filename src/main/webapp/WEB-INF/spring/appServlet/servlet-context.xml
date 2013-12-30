@@ -3,9 +3,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
@@ -46,7 +48,31 @@
 			</beans:map>
 		</beans:property>
 	</beans:bean>
+		
+	<beans:bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+			<beans:property name="contentNegotiationManager" ref="cnManager" />
+	</beans:bean>
 	
+	<beans:bean id="excelViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+		<beans:property name="order" value="1"/>
+		<beans:property name="location" value="/WEB-INF/spring/appServlet/spreadsheet-views.xml" />
+	</beans:bean>
+	 
+	<beans:bean id="pdfViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+		<beans:property name="order" value="2"/>
+		<beans:property name="location" value="/WEB-INF/spring/appServlet/pdf-views.xml" />
+	</beans:bean>
+
+	<beans:bean class="org.wei.spring.mvc.view.JsonViewResolver" />
+
+	<beans:bean class="org.wei.spring.mvc.view.MarshallingXmlViewResolver">
+		<beans:constructor-arg ref="marshaller" />
+	</beans:bean>
+	
+	<oxm:jaxb2-marshaller id="marshaller">
+		<oxm:class-to-be-bound name="org.wei.spring.mvc.domain.Book" />
+		<oxm:class-to-be-bound name="org.wei.spring.mvc.domain.BookList" />
+	</oxm:jaxb2-marshaller>
 	
 	<interceptors>
 		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">

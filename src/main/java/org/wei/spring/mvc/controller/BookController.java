@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.wei.spring.mvc.domain.Book;
+import org.wei.spring.mvc.domain.BookList;
 import org.wei.spring.mvc.service.IBookService;
 
 @Controller
@@ -36,21 +37,24 @@ public class BookController {
 	public String listBooks(Model model) {
 		logger.info("Enter list all books page");
 		List<Book> books = bookService.findAll();
-		model.addAttribute("books", books);
+		BookList bl = new BookList();
+		bl.setBookslst(books);
+		model.addAttribute("books", bl);
 		return "list";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView editBookPage(@PathVariable Long id) throws Exception {
-		ModelAndView mav = new ModelAndView("edit");
+	//public ModelAndView editBookPage(@PathVariable Long id) throws Exception {
+	public String editBookPage(@PathVariable Long id, Model model) throws Exception {
+		//ModelAndView mav = new ModelAndView("edit");
 		Book book = bookService.findById(id);
 		
 		if (book == null) {
 			throw new Exception("Book not found for id: " + id);
 		}
 		
-		mav.addObject("book", book);
-		return mav;
+		model.addAttribute("book", book);
+		return "edit";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
