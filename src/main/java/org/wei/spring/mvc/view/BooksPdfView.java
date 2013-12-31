@@ -24,7 +24,7 @@ public class BooksPdfView extends AbstractPdfView {
 			PdfWriter writer, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 	 
-			List<Book> books = ((BookList) model.get("books")).getBookslst();
+			List<Book> books = ((BookList) model.get("books")).getBooks();
 	 		    
 			Table table = new Table(3);
 						

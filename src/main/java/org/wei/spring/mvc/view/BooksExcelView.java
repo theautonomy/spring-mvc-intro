@@ -27,7 +27,7 @@ public class BooksExcelView extends AbstractExcelView {
 			HSSFWorkbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		List<Book> books = ((BookList) model.get("books")).getBookslst();
+		List<Book> books = ((BookList) model.get("books")).getBooks();
 
 		HSSFSheet sheet = workbook.createSheet();
 

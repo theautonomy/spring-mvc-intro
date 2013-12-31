@@ -9,14 +9,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="books")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class BookList {
-    List<Book> bookslst;
+	
+    private List<Book> books;
 
-	public List<Book> getBookslst() {
-		return bookslst;
+	public List<Book> getBooks() {
+		return books;
 	}
 
-	public void setBookslst(List<Book> bookslst) {
-		this.bookslst = bookslst;
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 }
 

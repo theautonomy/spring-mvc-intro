@@ -26,7 +26,7 @@
 </tr>
 </thead>
 <tbody>
-<c:forEach var="book" items="${books.bookslst}">
+<c:forEach var="book" items="${books.books}">
 	<tr>
 	<td>${book.id}</td>
 	<td>${book.title}</td>

@@ -38,15 +38,13 @@ public class BookController {
 		logger.info("Enter list all books page");
 		List<Book> books = bookService.findAll();
 		BookList bl = new BookList();
-		bl.setBookslst(books);
+		bl.setBooks(books);
 		model.addAttribute("books", bl);
 		return "list";
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	//public ModelAndView editBookPage(@PathVariable Long id) throws Exception {
 	public String editBookPage(@PathVariable Long id, Model model) throws Exception {
-		//ModelAndView mav = new ModelAndView("edit");
 		Book book = bookService.findById(id);
 		
 		if (book == null) {
