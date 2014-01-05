@@ -70,18 +70,20 @@ public class BookController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView createBookPage() {
 		ModelAndView mav = new ModelAndView("add", "book", new Book());
+		//ModelAndView mav = new ModelAndView("add");  // This doesn't work
 		return mav;
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public ModelAndView createBook(@ModelAttribute @Valid Book book,
+	//public ModelAndView createBook(/*@ModelAttribute*/ @Valid Book book1,  // This works too
+	public ModelAndView createBook(@ModelAttribute @Valid Book book1,
 			BindingResult result, final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
 			return new ModelAndView("add");
 		}
 
-		bookService.addBook(book);
+		bookService.addBook(book1);
 		return new ModelAndView("redirect:/book/list.html");
 	}
 
