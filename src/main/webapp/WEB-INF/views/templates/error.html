@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head th:fragment="header">
+   
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" media="screen"></link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<title>Spring MVC Simple Demo Application</title>
+	
+</head>
+
+<body>
+<h1>
+	<span th:text="#{error.title}"></span>
+</h1>
+<h2>
+	<span th:text="#{error.caption}"></span> for URL: <span th:text="${url}"></span>
+</h2>
+
+<h2>Exception Summary:</h2> <span th:text="${exception}"></span>
+
+<p />
+
+<h2>
+Exception Stack Trace: </h2> <span th:text="${exception.message}"></span>
+
+<span th:each="ste : ${exception.stackTrace}">
+  <span th:text="${ste}"></span>
+</span>
+
+</body>
+</html>

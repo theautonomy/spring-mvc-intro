@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	
+<head th:fragment="header">
+   
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" media="screen"></link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<title>Spring MVC Simple Demo Application</title>
+	
+</head>
+
+<body>
+<div style="padding: 50px 0px 0px 100px">
+ <h1><span th:text="#{title}"></span></h1>
+
+ <p/>
+ Local time is <span th:text="${time}"></span>
+ <br/>
+ <br/>
+
+ <a th:href="@{/book/create.html}">Add New Book</a><br/>
+ <a th:href="@{/book/list.html}">List Books</a><br/>
+ <br/>
+ <p/>
+ <a href="?lang=en">en</a> | <a href="?lang=de">de</a>
+ <br/>
+
+ <div th:if="${#authorization.expression('isAuthenticated()')}">
+         Welcome <span th:text="${#httpServletRequest.getUserPrincipal().getName()}"></span>
+ 		<a th:href="@{/j_spring_security_logout}">Logout</a><br/>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" media="screen"></link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>	
+<title>Book List Page</title>
+</head>
+<body>
+<div style="padding: 50px 0px 0px 100px">
+<h1>Edit Book Page</h1>
+<form action="#"  method="POST" th:object="${book}" th:action="@{'/book/edit/'+ ${book.id}  + '.html'}" >
+<table>
+<tbody>
+<tr>
+<td>Book Title:</td>
+
+<td><input type="text" th:field="*{title}"/></td>
+<!-- 
+<td><form:errors path="title" cssStyle="color: red;"/></td>
+-->
+</tr>
+<tr>
+<td>Book Author:</td>
+<td><input type="text" th:field="*{author}"/></td>
+<!-- 
+<td><form:errors path="author" cssStyle="color: red;"/></td>
+-->
+</tr>
+<tr>
+<td><input type="submit" value="Upate" /></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</form>
+<a th:href="@{/}">Home Page</a>
+</div>
+</body>
+</html>

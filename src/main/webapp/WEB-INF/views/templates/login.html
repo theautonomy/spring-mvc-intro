@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet"	media="screen"></link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>
+<title>Spring MVC Simple Demo Application</title>
+
+</head>
+
+<body>
+	<div style="padding: 50px 0px 0px 100px">
+		<h1>
+			<span th:text="#{login.title}"></span>
+		</h1>
+
+		<table style="background-color: white">
+			<tr>
+				<td>
+					<h2>
+						<span th:text="#{login.caption}"></span>
+					</h2>
+
+					<p th:if="${param.login_error}">
+						<span th:text="#{login.failure}"></span>
+					</p>
+
+					<form th:action="@{/j_spring_security_check}" method="post">
+						<table>
+							<tr>
+								<td><span th:text="#{login.username}"></span></td>
+								<td><input type="text" id="j_username" name="j_username" /></td>
+							</tr>
+							<tr>
+								<td><span th:text="#{login.password}"></span></td>
+								<td><input type="password" id="j_password"	name="j_password" /></td>
+							</tr>
+							<tr>
+								<td colspan='2'><input type="submit" value="Sign In" /></td>
+							</tr>
+						</table>
+					</form>
+				</td>
+
+			</tr>
+		</table>
+
+		<a th:href="@{/}">Home Page</a>
+	</div>
+
+</body>
+</html>

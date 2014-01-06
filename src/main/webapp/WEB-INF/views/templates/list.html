@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" media="screen"></link>
+<script src="http://code.jquery.com/jquery.js"></script>
+<script th:src="@{/resources/js/bootstrap.min.js}"></script>	
+<title>Book List Page</title>
+</head>
+
+<body>
+<div style="padding: 50px 0px 0px 100px">
+<h1>Book List Page</h1>
+<table style="text-align: center;" border="5" cellpadding="10"	cellspacing="10">
+<thead>
+<tr>
+<th>Id</th>
+<th>Title</th>
+<th>Author</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+
+	<tr th:each="book : ${books.books}">
+		<td th:text="${book.id}"></td>
+		<td th:text="${book.title}"></td>
+		<td th:text="${book.author}"></td>
+		<td> <a	th:href="@{'/book/edit/' + ${book.id} + '.html'}">Edit</a></td>
+	</tr>
+
+</tbody>
+</table>
+<br />
+<a th:href="@{/book/list.xml}">XML</a>, 
+<a th:href="@{/book/list.json}">JSon</a>
+<a th:href="@{/book/list.pdf}">PDF</a>
+<a th:href="@{/book/list.xls}">Excel</a>
+<br />
+<span th:text="${executeTime}"></span>
+<br />
+<a th:href="@{/}">Home Page</a>
+</div>
+</body>
+</html>
+
