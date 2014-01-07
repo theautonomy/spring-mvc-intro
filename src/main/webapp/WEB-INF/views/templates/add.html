@@ -19,16 +19,12 @@
 <td>Book Title:</td>
 
 <td><input type="text" th:field="*{title}"/></td>
-<!-- 
-<td><form:errors path="title" cssStyle="color: red;"/></td>
--->
+<td><span th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Incorrect title</span></td>
 </tr>
 <tr>
 <td>Book Author:</td>
 <td><input type="text" th:field="*{author}"/></td>
-<!-- 
-<td><form:errors path="author" cssStyle="color: red;"/></td>
--->
+<td><span th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Incorrect author</span></td>
 </tr>
 <tr>
 <td><input type="submit" value="Upate" /></td>

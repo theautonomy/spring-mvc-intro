@@ -32,6 +32,7 @@ public class BookController {
 	@Autowired
 	@Qualifier("bookService")
 	private IBookService bookService;
+
 	
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String listBooks(Model model) {
@@ -60,7 +61,10 @@ public class BookController {
 			final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			return new ModelAndView("edit");
+			//redirectAttributes.addFlashAttribute("error", result.getFieldError().getDefaultMessage());
+			ModelAndView mav = new ModelAndView("edit");
+			//mav.addObject("error", result.getFieldError().getDefaultMessage());
+			return mav;
 		}
 		
 		bookService.updateBook(book);
@@ -80,7 +84,10 @@ public class BookController {
 			BindingResult result, final RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			return new ModelAndView("add");
+			//redirectAttributes.addFlashAttribute("error", result.getFieldError().getDefaultMessage());
+			ModelAndView mav = new ModelAndView("add");
+			//mav.addObject("error", result.getFieldError().getDefaultMessage());
+			return mav;
 		}
 
 		bookService.addBook(book1);
