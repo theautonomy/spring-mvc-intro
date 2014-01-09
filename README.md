@@ -23,6 +23,10 @@ This project quickly introduces some important features of the Spring MVC framew
     * Thymeleaf
     
 * Interceptor
+  * Two functions are experimented 
+    * You can time how long it takes for a page to load by simply append ?timing=true to a url
+    * You can each switch the application to maintenance by ?maintenance=true to a url
+      * Of course, in real world we will use a configuration setting 
 
 * Internationalization support
 
