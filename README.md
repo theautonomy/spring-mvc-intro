@@ -6,8 +6,7 @@ This project quickly introduces some important features of the Spring MVC framew
   * Maven 
   
 * Configuration
-  * Option 1: Spring XML and annotation hybrid
-  
+  * Spring XML and annotation hybrid
   * Use Spring profile to manage which configuration setting will be used at runtime
   
 * View resolution 
@@ -18,15 +17,15 @@ This project quickly introduces some important features of the Spring MVC framew
     * PDF
     * EXCEL
   
-  * Two rendering options for supporting HTML view 
+  * Two rendering options for supporting HTML view are implemented:
     * Jsp
     * Thymeleaf
     
 * Interceptor
   * Two functions are experimented 
-    * You can time how long it takes for a page to load by simply append ?timing=true to a url
-    * You can each switch the application to maintenance by ?maintenance=true to a url
-      * Of course, in real world we will use a configuration setting 
+    * You can time how long it takes for a page to load by simply appending ?timing=true to a url
+    * You can switch the application to maintenance mode (showing flash page) by appending ?maintenance=true to a url
+    * Of course, in real world we will use a configuration setting 
 
 * Internationalization support
 
@@ -40,9 +39,9 @@ This project quickly introduces some important features of the Spring MVC framew
     * From a command prompt, enter the command: mvn tomcat7:run
   * Run with Maven and Jetty 8
     * From a command prompt, enter the command: mvn jetty:run
-  * Visit the following from a browser: http://localhost:8080/spring-mvc-intro/
-  * To edit a book, log in as user id = user and password = user  
-  * To add a book, log in as user id = admin and password = admin 
+  * Visit the following url from a browser: http://localhost:8080/spring-mvc-intro/
+  * To edit a book, log in as normal user (id = user and password = user) 
+  * To add a book, log in as admin user (id = admin and password = admin)
   * To show the time for loading each page, append ?timing=true to the url
     * For example, http://localhost:8080/spring-mvc-intro/book/list.html?timing=true
   * To switch the application to maintenance mode, append ?maintenance=true
