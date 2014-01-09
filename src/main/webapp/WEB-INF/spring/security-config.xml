@@ -15,10 +15,16 @@
 		<security:logout logout-success-url="/index" />
 	</security:http>
 
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service properties="/WEB-INF/spring/users.properties" />
-		</security:authentication-provider>
-	</security:authentication-manager>
+	<bean id="encoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder"/>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:password-encoder ref="encoder"/>
+            <security:user-service>
+                <security:user name="user"  password="dac4476217b42b410e8d85d111d08ebb1826af426f74b4dd324fea9b1da734961111faa018b14c51" authorities="ROLE_USER" />
+                <security:user name="admin" password="7b3ae3887a075b9cc63e0bce13aa50618859c91ec60cd772121b18ad3b59197d8b8f13732d92c360" authorities="ROLE_ADMIN" />
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
 
 </beans>
