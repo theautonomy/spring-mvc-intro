@@ -10,8 +10,6 @@
 		http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven content-negotiation-manager="cnManager"/>
 	<context:component-scan base-package="org.wei.spring" />
@@ -19,9 +17,6 @@
 
 	<default-servlet-handler />
 
-    <!--  
-	<view-controller path="/"       view-name="index" />
-	-->
 	<view-controller path="/denied" view-name="denied" />
 	<view-controller path="/error"  view-name="error" />
 
@@ -48,15 +43,7 @@
 			<beans:property name="contentNegotiationManager" ref="cnManager" />
 	</beans:bean>
 	
-	<!-- 
-	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/jsp/" />
-		<beans:property name="suffix" value=".jsp" />
-	</beans:bean>
-	-->
-
 	<beans:bean class="org.wei.spring.mvc.view.JsonViewResolver" />
-	
 
 	<beans:bean class="org.wei.spring.mvc.view.MarshallingXmlViewResolver">
 		<beans:constructor-arg ref="marshaller" />
@@ -147,14 +134,9 @@
 	</beans:beans>
 	
 	<beans:beans profile="thymeleaf">
-	
-			<!-- Declare a Thymeleaf resolver -->
-
 		<beans:bean class="org.thymeleaf.spring3.view.ThymeleafViewResolver">
 			<beans:property name="templateEngine" ref="templateEngine" />
 		</beans:bean>
-			
-
 	</beans:beans>
 	
 </beans:beans>

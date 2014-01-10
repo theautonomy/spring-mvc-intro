@@ -21,6 +21,8 @@ This project quickly introduces some important features of the Spring MVC framew
     * Jsp
     * Thymeleaf
     
+* Form bean validation with JSR 303 (via implementation by Hibernate Validator)
+    
 * Interceptor
   * Two functions are experimented 
     * You can time how long it takes for a page to load by simply appending ?timing=true to a url
