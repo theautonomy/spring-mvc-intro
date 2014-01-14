@@ -63,6 +63,11 @@
 		<beans:property name="order" value="2"/>
 		<beans:property name="location" value="/WEB-INF/spring/appServlet/pdf-views.xml" />
 	</beans:bean>
+
+	<beans:bean id="csvViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
+		<beans:property name="order" value="2"/>
+		<beans:property name="location" value="/WEB-INF/spring/appServlet/csv-views.xml" />
+	</beans:bean>
 	
 	<interceptors>
 		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
