@@ -16,6 +16,7 @@ This project quickly introduces some important features of the Spring MVC framew
     * JSON
     * PDF
     * EXCEL
+    * CSV
   
   * Two rendering options for supporting HTML view are implemented:
     * Jsp
