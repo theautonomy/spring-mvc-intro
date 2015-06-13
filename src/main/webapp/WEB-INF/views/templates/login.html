@@ -29,15 +29,15 @@
 						<span th:text="#{login.failure}"></span>
 					</p>
 
-					<form th:action="@{/j_spring_security_check}" method="post">
+					<form th:action="@{/login}" method="post">
 						<table>
 							<tr>
 								<td><span th:text="#{login.username}"></span></td>
-								<td><input type="text" id="j_username" name="j_username" /></td>
+								<td><input type="text" id="username" name="username" /></td>
 							</tr>
 							<tr>
 								<td><span th:text="#{login.password}"></span></td>
-								<td><input type="password" id="j_password"	name="j_password" /></td>
+								<td><input type="password" id="password"	name="password" /></td>
 							</tr>
 							<tr>
 								<td colspan='2'><input type="submit" value="Sign In" /></td>

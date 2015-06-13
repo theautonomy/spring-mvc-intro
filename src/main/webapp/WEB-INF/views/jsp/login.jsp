@@ -31,16 +31,22 @@
 					<fmt:message key="login.caption" />
 				</h2>
 
+<!--  
 				<form action="<c:url value='/j_spring_security_check'/>" method="post">
+				-->
+				<form action="<c:url value='/login'/>" method="post">
 					<table>
 						<tr>
 							<td><fmt:message key="login.username" />:</td>
-							<td><input type="text" name="j_username" /></td>
+							<td><input type="text" name="username" /></td>
 						</tr>
 						<tr>
 							<td><fmt:message key="login.password" />:</td>
-							<td><input type="password" name="j_password" /></td>
+							<td><input type="password" name="password" /></td>
 						</tr>
+						
+						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        
 						<tr>
 							<td colspan='2'><input name="submit" type="submit" value="Login" /></td>
 						</tr>

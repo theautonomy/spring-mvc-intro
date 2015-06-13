@@ -28,7 +28,7 @@
 
  <security:authorize access="isAuthenticated()">
  Welcome <%= request.getUserPrincipal().getName() %>
- <a href="<c:url value="/j_spring_security_logout"/>">Logout</a><br/>
+ <a href="<c:url value="/logout"/>">Logout</a><br/>
  </security:authorize>
 
  <p/>

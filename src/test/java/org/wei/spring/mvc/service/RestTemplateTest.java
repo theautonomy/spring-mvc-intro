@@ -11,6 +11,8 @@ import org.wei.spring.mvc.domain.Book;
 
 public class RestTemplateTest {
 	
+	
+/*	
 	@Test
 	public void testCallJson() throws MalformedURLException {
 		RestTemplate rt = new RestTemplate();	
@@ -28,6 +30,7 @@ public class RestTemplateTest {
 		Book book = rt.getForObject(url, Book.class);
 		assertEquals(10002L , book.getId());
 	}
+*/
 
 
 }

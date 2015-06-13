@@ -16,7 +16,7 @@ public class PasswordEncoderTest {
 	@Test
 	public void testDecodePassword() {
 		StandardPasswordEncoder spe = new StandardPasswordEncoder();
-		boolean match = spe.matches("user", "dac4476217b42b410e8d85d111d08ebb1826af426f74b4dd324fea9b1da734961111faa018b14c51");
+		boolean match = spe.matches("admin", "7b3ae3887a075b9cc63e0bce13aa50618859c91ec60cd772121b18ad3b59197d8b8f13732d92c360");
 		Assert.assertTrue(match);
 	}
 
