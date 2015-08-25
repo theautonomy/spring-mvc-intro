@@ -54,10 +54,12 @@
 		</beans:bean>	
 
 
+<!--  
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 			<beans:property name="prefix" value="/WEB-INF/views/jsp/" />
 			<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+-->
 
 	<beans:bean class="org.wei.spring.mvc.view.MarshallingXmlViewResolver">
 		<beans:constructor-arg ref="marshaller" />
@@ -156,7 +158,6 @@
 		-->
 	</beans:bean>
 		
-		<!--  
 	<beans:beans profile="jsp">
 		<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		    <beans:property name="order" value="2"/>
@@ -171,6 +172,5 @@
 			<beans:property name="templateEngine" ref="templateEngine" />
 		</beans:bean>
 	</beans:beans>
-	-->
 	
 </beans:beans>
