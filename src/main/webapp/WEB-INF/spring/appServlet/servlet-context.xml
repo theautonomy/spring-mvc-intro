@@ -11,7 +11,10 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- Enables the Spring MVC @Controller programming model -->
+	<!--  
 	<annotation-driven content-negotiation-manager="cnManager"/>
+	-->
+	<annotation-driven/>
 	<context:component-scan base-package="org.wei.spring" />
 	<security:global-method-security pre-post-annotations="enabled" />
 
@@ -25,25 +28,36 @@
 	
 	<beans:bean id="cnManager"
 		class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-		<beans:property name="favorPathExtension" value="true"/>
 		<beans:property name="ignoreAcceptHeader" value="true" />
 		<beans:property name="defaultContentType" value="text/html" />
+		<!--  
+		<beans:property name="favorPathExtension" value="true"/>
 		<beans:property name="useJaf" value="false"/>
+		-->
 
 		<beans:property name="mediaTypes">
 			<beans:map>
 				<beans:entry key="html" value="text/html" />
-				<beans:entry key="json" value="application/json" />
 				<beans:entry key="xml" value="application/xml" />
+				<beans:entry key="json" value="application/json" />
+				<beans:entry key="xls" value="application/vnd.ms-excel" />
+				<beans:entry key="pdf" value="application/pdf" />
+				<beans:entry key="csv" value="text/csv" />
 			</beans:map>
 		</beans:property>
 	</beans:bean>
-		
-	<beans:bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-			<beans:property name="contentNegotiationManager" ref="cnManager" />
-	</beans:bean>
 	
-	<beans:bean class="org.wei.spring.mvc.view.JsonViewResolver" />
+	<beans:bean
+			class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+			<beans:property name="contentNegotiationManager" ref="cnManager" />
+
+		</beans:bean>	
+
+
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+			<beans:property name="prefix" value="/WEB-INF/views/jsp/" />
+			<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
 
 	<beans:bean class="org.wei.spring.mvc.view.MarshallingXmlViewResolver">
 		<beans:constructor-arg ref="marshaller" />
@@ -54,20 +68,29 @@
 		<oxm:class-to-be-bound name="org.wei.spring.mvc.domain.BookList" />
 	</oxm:jaxb2-marshaller>
 	
-	<beans:bean id="excelViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
-		<beans:property name="order" value="1"/>
+	<beans:bean class="org.wei.spring.mvc.view.JsonViewResolver" />
+
+	<beans:bean class="org.springframework.web.servlet.view.XmlViewResolver">
+	<!--  
+		<beans:property name="order" value="3"/>
+		-->
 		<beans:property name="location" value="/WEB-INF/spring/appServlet/spreadsheet-views.xml" />
 	</beans:bean>
 	 
-	<beans:bean id="pdfViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
-		<beans:property name="order" value="2"/>
+	<beans:bean class="org.springframework.web.servlet.view.XmlViewResolver">
+	<!--  
+		<beans:property name="order" value="4"/>
+		-->
 		<beans:property name="location" value="/WEB-INF/spring/appServlet/pdf-views.xml" />
 	</beans:bean>
 
-	<beans:bean id="csvViewResolver" class="org.springframework.web.servlet.view.XmlViewResolver">
-		<beans:property name="order" value="2"/>
+	<beans:bean  class="org.springframework.web.servlet.view.XmlViewResolver">
+	<!--  
+		<beans:property name="order" value="5"/>
+		-->
 		<beans:property name="location" value="/WEB-INF/spring/appServlet/csv-views.xml" />
 	</beans:bean>
+
 	
 	<interceptors>
 		<beans:bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
@@ -128,13 +151,18 @@
 		<beans:property name="prefix" value="/WEB-INF/views/templates/" />
 		<beans:property name="suffix" value=".html" />
 		<beans:property name="templateMode" value="HTML5" />
+		<!--  
 		<beans:property name="order" value="1" />
+		-->
 	</beans:bean>
 		
+		<!--  
 	<beans:beans profile="jsp">
 		<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		    <beans:property name="order" value="2"/>
 			<beans:property name="prefix" value="/WEB-INF/views/jsp/" />
 			<beans:property name="suffix" value=".jsp" />
+			<beans:property name="contentType" value="text/html" />
 		</beans:bean>
 	</beans:beans>
 	
@@ -143,5 +171,6 @@
 			<beans:property name="templateEngine" ref="templateEngine" />
 		</beans:bean>
 	</beans:beans>
+	-->
 	
 </beans:beans>

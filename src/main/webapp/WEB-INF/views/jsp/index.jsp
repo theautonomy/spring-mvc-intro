@@ -15,7 +15,7 @@
 </head>
 <body>
 <div style="padding: 50px 0px 0px 100px">
- <h1><spring:message code="title"/></h1>
+ <h1>JSP - <spring:message code="title"/></h1>
 
  <p/>
  Local time is ${time}
