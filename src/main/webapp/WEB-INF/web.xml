@@ -35,7 +35,7 @@
 		<!--  
 		<init-param>
 			  <param-name>spring.profiles.active</param-name>
-			  <param-value>jsp</param-value>
+			  <param-value>thymeleaf</param-value>
 		</init-param>
 		-->
 		<load-on-startup>1</load-on-startup>
