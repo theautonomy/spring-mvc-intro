@@ -51,7 +51,3 @@ This project quickly introduces some important features of the Spring MVC framew
     * http://localhost:8080/spring-mvc-intro/book/list.html??maintenance=true
 
 
- 
- 
-
-
