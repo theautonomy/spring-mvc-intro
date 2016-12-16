@@ -50,4 +50,3 @@ This project quickly introduces some important features of the Spring MVC framew
   * To switch the application to maintenance mode, append ?maintenance=true
     * http://localhost:8080/spring-mvc-intro/book/list.html??maintenance=true
 
-
